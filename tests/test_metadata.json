@@ -1,0 +1,16 @@
+{"dataset":
+    {
+        "title":"vegetables",
+	"description":"List of vegetables",
+	"keyword":["vegetables","fruits"],
+	"modified":"7842-08-24",
+	"publisher":{
+            "name":"Not-A-Publisher Inc"
+        },
+	"contactPoint":{
+	    "fn":"John Doe"
+	},
+	"identifier":"123456789",
+	"refPeriod":"2021-01"
+    }
+}
