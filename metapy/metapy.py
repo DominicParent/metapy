@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 
 def read_meta(path_to_file):
     with open(path_to_file, "r") as f:
@@ -16,9 +17,11 @@ def write_meta(meta, path_to_file):
 def find_metafiles(root_path):
     for (root,dirs,files) in os.walk(root_path):
         if "metadata.json" in files:
-            read_meta(root + "/metadata.json")
+            my_meta = read_meta(root + "/metadata.json")
+            print("Found a meta at " + root)
+            print(my_meta)
 
-def main(args):O
+def main(args):
     print("It's alive!")
 
 if __name__ == "__main__":
