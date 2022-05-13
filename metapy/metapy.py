@@ -13,6 +13,11 @@ def write_meta(meta, path_to_file):
     with open(path_to_file, "w") as f:
         f.write(json_meta)
 
+def find_metafiles(root_path):
+    for (root,dirs,files) in os.walk(root_path):
+        if "metadata.json" in files:
+            read_meta(root + "/metadata.json")
+
 def main(args):O
     print("It's alive!")
 
