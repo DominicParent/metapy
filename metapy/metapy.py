@@ -22,6 +22,11 @@ def find_metafiles(root_path):
 
     return metafiles
 
+def init_meta():
+    metafile_init = {"dataset":{"title":"", "description":"", "keyword":[], "modified":"", "publisher":{"name":""}, "contactPoint":{"fn":""}, "identifier":"", "refPeriod":""}}
+
+    return metafile_init
+
 def main(args):
     print("It's alive!")
 
