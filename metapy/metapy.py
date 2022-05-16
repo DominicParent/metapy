@@ -40,6 +40,9 @@ def rec_search_metafile(metafile, search_key, search_value, result):
 def search_metafile(metafile, search_key, search_value):
     result = False
 
+    if isinstance(metafile, str):
+        metafile = read_meta(metafile)
+
     return rec_search_metafile(metafile, search_key, search_value, result)
 
 
