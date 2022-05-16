@@ -2,7 +2,7 @@ import argparse
 import json
 import os
 
-# Takes a path and loads it from json to python dictionaries.
+# Takes a path and loads metadata from json to python dictionaries.
 def read_meta(path_to_file):
     with open(path_to_file, "r") as f:
         meta = json.load(f)
@@ -25,10 +25,23 @@ def find_metafiles(root_path):
 
     return metafiles
 
-# Not currently implemented.
-# Look through a metafile for a search_key and search_value.
-def search_metafiles(metafile, search_key, search_value):
-    pass
+# Recursive look through a metafile for a search_key and search_value.
+def rec_search_metafile(metafile, search_key, search_value, result):
+
+    for key, value in metafile.items():
+        if type(value) is dict:
+            result = rec_search_metafile(value, search_key, search_value, result)
+        if key == search_key and value == search_value:
+            result = True
+
+    return result
+
+# Publicly called function for rec_search_metafile.
+def search_metafile(metafile, search_key, search_value):
+    result = False
+
+    return rec_search_metafile(metafile, search_key, search_value, result)
+
 
 # Returns an empty set of dictionaries that can be serialized to a standard-compliant metadata.json file.
 def init_meta():
